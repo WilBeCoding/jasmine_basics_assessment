@@ -19,46 +19,48 @@ letterGrader: function(grade) {
   if(grade < 60) {
     return "F";
   }
-}
+},
 
 
 averageScore: function(average) {
   var sum = 0;
     for (var i = 0; i < average.length; i++) {
-    sum += average[i]
+      sum += average[i]
     } 
-  return sum / average.length;
-};
+      return sum / average.length;
+},
 
 medianScore: function(median) {
-median.sort();
-var half = Math.floor(median.length / 2);
+  median.sort();
+  var half = Math.floor(median.length / 2);
 
-if ((median.length / 2) % 2 === 0) {
-return (median[half]);
-}
-else if ((median.length /2) % 2 !== 0) {
-  return (median[half -1] + median[half]) / 2;
-}
-};
+    if ((median.length / 2) % 2 === 0) {
+      return (median[half]);
+    }
+    else if ((median.length /2) % 2 !== 0) {
+      return (median[half -1] + median[half]) / 2;
+    }
+},
 
 modeScore: function(mode) {
     var counter = {};
-    var mode = [];
+    var box = [];
     var max = 0;
-    for (var i in mode) {
+      for (var i in mode) {
         if (!(mode[i] in counter))
-            counter[mode[i]] = 0;
-        counter[mode[i]]++;
+          counter[mode[i]] = 0;
+          counter[mode[i]]++;
  
         if (counter[mode[i]] == max) 
-            mode.push(mode[i]);
+            box.push(mode[i]);
         else if (counter[mode[i]] > max) {
             max = counter[mode[i]];
-            mode = [mode[i]];
+            box = [mode[i]];
+            var stringer = box.join();
         }
     }
-    return mode; 
+    var int = parseInt(stringer);
+    return int; 
 }
 
 
